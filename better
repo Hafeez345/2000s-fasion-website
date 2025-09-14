@@ -1,0 +1,785 @@
+<!-- HEADER -->
+<header>
+  
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#trends">Trends</a>
+    <a href="#celebrities">Celebrities</a>
+    
+    <a href="#gallery">Gallery</a>
+    
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search section...">
+      <button id="searchBtn">🔍</button>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* ---------- HEADER ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #111;
+    color: #fff;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ff4081;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #ff4081;
+  }
+
+  /* ---------- SEARCH ---------- */
+  .search-box {
+    position: relative;
+  }
+
+  .search-box input {
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding-right: 30px;
+  }
+
+  .search-box button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: #111;
+      flex-direction: column;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    nav.active {
+      display: flex;
+    }
+
+    nav a {
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .search-box {
+      margin: 10px auto 0;
+      width: 80%;
+    }
+
+    .menu-toggle {
+      display: block;
+      color: #fff;
+    }
+  }
+
+  /* ---------- SMOOTH SCROLL ---------- */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  // Toggle menu for mobile
+  const toggle = document.getElementById("menu-toggle");
+  const navbar = document.getElementById("navbar");
+
+  toggle.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+  });
+
+  // Search functionality
+  const searchBtn = document.getElementById("searchBtn");
+  const searchInput = document.getElementById("searchInput");
+
+  searchBtn.addEventListener("click", () => {
+    const value = searchInput.value.toLowerCase().trim();
+    const section = document.getElementById(value);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      searchInput.value = "";
+    } else {
+      alert("Section not found! Try: home, trends, celebrities, hairstyles, gallery, contact");
+    }
+  });
+
+  // Enter key search support
+  searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      searchBtn.click();
+    }
+  });
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2000–2010 Fashion Diary</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #fafafa;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #222;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 50px;
+    }
+
+    /* ---------- HOME ---------- */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://i.ibb.co/fDtGBhC/fashion-bg.jpg') no-repeat center/cover;
+      color: #fff;
+      padding: 60px 20px;
+      position: relative;
+    }
+
+    #home h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      animation: fadeDown 1s ease-out;
+    }
+
+    #home p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      animation: fadeUp 1.2s ease-out;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #ff4081;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e73370;
+      transform: scale(1.05);
+    }
+
+    
+    .trend-card {
+      background: #fafafa;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .trend-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .trend-card h3 {
+      margin: 15px;
+      font-size: 1.3rem;
+      color: #111;
+    }
+
+    .trend-card p {
+      margin: 0 15px 20px;
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .trend-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.15);
+    }
+
+    
+    
+
+
+    
+
+    /* ---------- CONTACT ---------- */
+    #contact {
+      padding: 80px 20px;
+      background: #fff;
+    }
+
+    .contact-container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #ff4081;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      background: #ff4081;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #e73370;
+    }
+
+    /* ---------- Animations ---------- */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .khan {  height: 150px;  width: 150px; margin-top: 50px;  margin-left: 40px;
+       } 
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- HOME -->
+    <section id="home">
+      <h1>2000–2010 Fashion Diary</h1>
+      <p>
+        The decade spanning 2000 to 2010 marked a transformative phase in global fashion, defined by
+         a striking balance between glamour and casual expression. Iconic trends such as low-rise denim, tailored cargo pants,
+          and statement graphic tees reflected youthful confidence, while velour tracksuits and denim skirts highlighted everyday
+           versatility. Accessories like oversized sunglasses, chunky belts, and bold handbags reinforced individuality.
+            Hairstyles, including layered cuts and side-swept bangs, complemented the era’s dynamic
+         character. Collectively, this period shaped a memorable chapter in modern fashion history.
+      </p>
+      <a href="#trends" class="btn">Explore Trends</a>
+    </section>
+       <br>
+       <br>
+    <!-- TRENDS -->
+    <section id="trends">
+      <h2>Fashion Trends</h2>
+      <p class="subtitle">Iconic styles that defined the 2000s era</p>
+         <div class="banner-container"></div>
+
+     <a href="#"> <img class="khan" src="ali.jpg" alt="hdigdyw"></a>
+     <a href="#"> <img class="khan" src="waqas.jpg" alt="grwd"></a>
+     <a href="#"> <img class="khan" src="sajad.jpg" alt="bvdgdg"></a>
+     <a href="#"> <img class="khan" src="mir hasan.jpg" alt="nsvvvs"></a>
+     <a href="#"> <img class="khan" src="daddo.jpg" alt="nsgfs"></a>
+     
+      <br>
+<br>
+<br>
+    <!-- CELEBRITIES -->
+    <section id="celebrities">
+      <h2>Celebrity Styles</h2>
+      <br>
+      <p class="subtitle">Red carpet icons of the 2000s</p>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      height: 200px;
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .description {
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="Avril lavinge.jpg" alt="Image 1">
+    <div class="description">
+      <h2>Avril Lavinge</h2>
+      <p> 
+        Avril Lavigne’s 2000s fashion redefined pop-punk style with its bold mix of edgy and casual elements. Known for her iconic
+         ties over tank tops, baggy cargo pants, studded belts, and layered wristbands, she created a rebellious yet approachable look.
+          Her style influenced youth culture, blending skater
+         vibes with rock-inspired individuality.
+      </p>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: 40px;">
+    <img src="sara jessica.jpg" alt="Image 2">
+    <div class="description">
+      <h2>Sarah Jessica Parker</h2>
+      <p>
+        Sarah Jessica Parker’s 2000s fashion embodied elegance and trend-setting glamour, heavily influenced by her role in Sex and 
+        the City. Known for bold prints, chic dresses, statement heels, and daring accessories, she combined sophistication
+         with experimentation.
+         Her fearless style choices shaped early 2000s fashion, making her a global icon of modern femininity.
+      </p>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: 40px;">
+    <img src="nichple richie.jpg" alt="Image 3">
+    <div class="description">
+      <h2>Nichole Richie</h2>
+      <p>
+        Nicole Richie’s 2000s fashion became synonymous with the boho-chic trend. She embraced oversized sunglasses,
+         flowy maxi dresses, layered jewelry, and casual yet glamorous looks. Often styled with loose waves and vintage-inspired pieces,
+          her effortless aesthetic defined Hollywood street fashion. Nicole’s influence made bohemian style mainstream,
+         inspiring countless young women worldwide.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Add event listener to images
+    const images = document.querySelectorAll('img');
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        console.log('Image clicked!');
+      });
+    });
+  </script>
+</body
+    </section>
+
+    <main>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+
+    <div class="gallery-row">
+      <img src="mir hasan.jpg" alt="Gallery Image 1">
+      <img src="waqas.jpg" alt="Gallery Image 2">
+      <img src="ali.jpg" alt="Gallery Image 3">
+      <img src="sajad.jpg" alt="Gallery Image 4">
+      <img src="abc.jpg" alt="Gallery Image 5">
+     
+       <img src="def.jpg" alt="Gallery Image 6">
+
+    </div> <img src="ghi.jpg" alt="Gallery Image 6"> 
+     <img src="mai.jpg" alt="Gallery Image 6">
+     <img src="pqr.jpg" alt="Gallery Image 6">
+      <img src="stu.jpg" alt="Gallery Image 6">
+       <img src="vwx.jpg" alt="Gallery Image 6">
+  </section>
+</main>
+
+<style>
+  /* Gallery Section */
+  #gallery {
+    padding: 40px;
+    background: #f9f9f9;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+
+  #gallery h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+  }
+
+  /* Row Style */
+  .gallery-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  /* Image Style */
+  .gallery-row img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+  }
+
+  .gallery-row img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+  }
+
+  /* Fullscreen Overlay */
+  .fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .fullscreen img {
+    width: 80%;
+    max-height: 90%;
+    border-radius: 12px;
+  }
+</style>
+
+<script>
+  // JS for fullscreen image view
+  document.querySelectorAll(".gallery-row img").forEach(img => {
+    img.addEventListener("click", () => {
+      let fullscreenDiv = document.createElement("div");
+      fullscreenDiv.classList.add("fullscreen");
+
+      let fullImg = document.createElement("img");
+      fullImg.src = img.src;
+
+      fullscreenDiv.appendChild(fullImg);
+      document.body.appendChild(fullscreenDiv);
+
+      // Close fullscreen on click
+      fullscreenDiv.addEventListener("click", () => {
+        fullscreenDiv.remove();
+      });
+    });
+  });
+</script>
+<main>
+  
+  ection id="contact">
+    <h2>Products you can buy</h2>
+  
+
+    <table>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Buy</th>
+      </tr>
+      <tr>
+        <td><img src="abc.jpg" alt="Low-rise Jeans"></td>
+        <td>Low-rise Jeans</td>
+        <td class="price">$45</td>
+        <td><a href="hts" target="_blank" class="buy-btn">Buy Now</a></td>
+      </tr>
+      <tr>
+        
+      </tr>
+      <tr>
+        <td><img src="denim.jpg" alt="Denim Mini Skirt"></td>
+        <td>Denim Mini Skirt</td>
+        <td class="price">$35</td>
+        <td><a href="https://wa.me/923033744977?text=I%20want%20to%20buy%20Denim%20Mini%20Skirt" target="_blank" class="buy-btn">Buy Now</a></td>
+      </tr>
+      <tr>
+        <td><img src="topy.jpg" alt="Trucker Hat"></td>
+        <td>Trucker Hat</td>
+        <td class="price">$20</td>
+        <td><a href="https://wa.me/923033744977?text=I%20want%20to%20buy%20Trucker%20Hat" target="_blank" class="buy-btn">Buy Now</a></td>
+      </tr>
+      <tr>
+        <td><img src="graphic.jpg" alt="Graphic Tee"></td>
+        <td>Graphic Tee</td>
+        <td class="price">$25</td>
+        <td><a href="https://wa.me/923033744977?text=I%20want%20to%20buy%20Graphic%20Tee" target="_blank" class="buy-btn">Buy Now</a></td>
+      </tr>
+    </table>
+  </section>
+</main>
+
+<style>
+  #contact {
+    padding: 40px;
+    background: #f8f9fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #contact h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    color: #222;
+  }
+
+  #contact p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  #contact table {
+    width: 70%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  }
+
+  #contact th, #contact td {
+    padding: 12px;
+    border: 1px solid #eee;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  #contact th {
+    background: linear-gradient(135deg, #222, #444);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #contact tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+
+  #contact tr:hover {
+    background: #f1f1f1;
+    transition: 0.3s;
+  }
+
+  #contact img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+  }
+
+  .price {
+    font-weight: bold;
+    color: #ff6600;
+  }
+
+  .buy-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .buy-btn:hover {
+    background: #1da851;
+    transform: scale(1.05);
+  }
+</style>
+
+<!-- FOOTER (Dark Theme, Logo Removed) -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <!-- about -->
+      <div class="col about">
+        <p>2000–2010 fashion diary — classic trends, celebrity looks, and vintage inspo for nostalgia lovers.</p>
+      </div>
+
+      <!-- quick links -->
+      <div class="col links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#trends">Trends</a></li>
+          <li><a href="#celebrities">Celebrities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- contact -->
+      <div class="col contact">
+        <h4>Contact</h4>
+        <p>Phone: <a href="tel:+923033744977">+92 303 3744977</a></p>
+        <p>Email: <a href="abdulhafeez05550555@gmail.com">info@example.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/923033744977" target="_blank">Chat on WhatsApp</a></p>
+      </div>
+
+      <!-- newsletter -->
+      <div class="col newsletter">
+        <h4>Newsletter</h4>
+        <p>Get weekly vintage trend updates.</p>
+        <form id="footer-newsletter" onsubmit="subscribeFooter(event)">
+          <input type="email" id="nl-email" placeholder="Your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> YourSiteName. All rights reserved.</p>
+      <p class="policy"><a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function subscribeFooter(e){
+    e.preventDefault();
+    const email = document.getElementById('nl-email').value.trim();
+    if(!email) return alert('Please enter email.');
+    alert('Thanks — ' + email + ' subscribed!');
+    e.target.reset();
+  }
+</script>
+
+<style>
+  :root{
+    --bg:#0f1724;        /* dark navy */
+    --muted:#9aa4b2;
+    --accent:#d9a23a;    /* warm gold */
+    --white:#ffffff;
+  }
+
+  .site-footer{background:var(--bg); color:var(--muted); font-family:system-ui, Arial, sans-serif; padding:40px 0; font-size:14px;}
+  .container{max-width:1100px; margin:0 auto; padding:0 18px;}
+  .footer-top{display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; justify-content:space-between; padding-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.06);}
+  .col{flex:1 1 210px; min-width:200px;}
+  .about p{color:var(--muted); line-height:1.5; margin:0 0 6px 0;}
+  .links h4, .contact h4, .newsletter h4{color:var(--white); margin:0 0 10px 0; font-size:16px;}
+  .links ul{list-style:none; padding:0; margin:0;}
+  .links li{margin:6px 0;}
+  .links a{color:var(--muted); text-decoration:none;}
+  .links a:hover{color:var(--accent);}
+  .contact p{margin:6px 0;}
+  .contact a{color:var(--muted); text-decoration:none;}
+  .newsletter form{display:flex; gap:8px; margin-top:8px;}
+  .newsletter input[type="email"]{flex:1; padding:8px 10px; border-radius:6px; border:1px solid rgba(255,255,255,0.08); background:transparent; color:var(--white);}
+  .newsletter button{padding:8px 12px; border-radius:6px; border:none; background:var(--accent); color:#111; cursor:pointer; font-weight:600;}
+  .newsletter button:hover{opacity:0.9;}
+  .footer-bottom{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; padding-top:18px; align-items:center;}
+  .footer-bottom p{margin:0; color:var(--muted);}
+  .footer-bottom .policy a{color:var(--muted); text-decoration:none; margin-left:8px;}
+  .footer-bottom .policy a:hover{color:var(--accent);}
+
+  @media (max-width:740px){
+    .footer-top{flex-direction:column;}
+    .footer-bottom{flex-direction:column; align-items:flex-start; gap:8px;}
+  }
+</style>
