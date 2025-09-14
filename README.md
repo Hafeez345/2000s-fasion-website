@@ -1,2 +1,6 @@
-# 2000s-fasion-website
-“2000s Fashion Diary – A digital showcase of iconic trends, celebrity looks, and styles from 2000–2010. Built with HTML, CSS &amp; JavaScript to blend fashion history with modern design.”
+
+# 2000s to 2010 Fashion Diary 👗✨  
+
+A simple website showcasing fashion trends, celebrity looks, and hairstyles from the 2000s to 2010 era.  
+
+🌍 *Live Demo:* [View Website](https://Hafeez345.github.io/2000s-fashion-website)  
